@@ -142,7 +142,7 @@ overflow:hidden;
     background-color: white;
     color:red;
     border-radius: 50%;
-    animation:colorswap 3s ease-in-out infinite
+    animation:colorswap 3s ease-in-out infinite;
    }
    .furaffinity{
     border:10px solid red;
@@ -166,25 +166,28 @@ overflow:hidden;
     border-radius: 50%;
     animation:colorswap 3s ease-in-out infinite;
    }
-   .gallery_wheel{
+   .gallery_container{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:8px;
-    overflow: hidden;
+    padding: 60px;
+   }
+   .gallery_wheel{
     position: relative;
     width: 200px;
     height: 200px;
     transform-style: preserve-3d;
-    animation: rotate 30% linear infinite;
+    animation: rotate 50s linear infinite;
    }
    @keyframes rotate{
-    0%{ transform: perspective(1000px) rotateY(0deg);
+    0%{
+         transform: perspective(1000px) rotateY(0deg);
    }
    100%{
     transform: perspective(1000px) rotateY(360deg);
    }
 }
+
    .gallery_wheel span{
     position: absolute;
     top: 0;
@@ -193,11 +196,10 @@ overflow:hidden;
     height: 105%;
     transform-origin: center;
     transform-style: preserve-3d;
-    transform: rotateY(calc(var(--i)+45deg)) translateZ(350px)
+    transform: rotateY(calc(var(--i)*45deg)) translateZ(350px)
    }
    .gallery_wheel span img{
     position: absolute;
-    padding:16px;
     top: 0;
     left: 0;
     width: 100%;
@@ -206,6 +208,6 @@ overflow:hidden;
     object-fit:cover;
     transition: 2s;
    }
-   .gallery_wheel span:hover{
-    transform: translateY(-50px) scale(1.2);
+   .gallery_wheel span:hover img{
+    transform: translatey(-50px) scale(1.2);
    }
