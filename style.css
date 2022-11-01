@@ -1,5 +1,5 @@
 body{
-    background-image:url('images/600x200.jpeg');
+    background-image:url('images/background.jpeg');
     background-attachment:fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -29,17 +29,18 @@ ul{
    }
    .wavy_text{
     position: relative;
-   }
+ }
    .wavy_text span{
     position:relative;
     display:inline-block;
     font-size:60px;
+    color:white;
     text-transform: uppercase;
-    animation: animate 2s ease-in-out infinite;
+    animation: bounce 3.5s ease-in-out infinite;
     animation-delay: calc(0.1s * var(--i));
    }
 
-   @keyframes animate {
+   @keyframes bounce {
     0% {
         transform: translateY(0px);
     }
@@ -52,6 +53,10 @@ ul{
     100% {
         transform: translateY(0px);
     }
+}
+.profile_picture{
+border-radius: 50%;
+overflow:hidden;
 }
    .nav{
     display: flex;
@@ -74,23 +79,133 @@ ul{
    }
    .sources_block{
     display: flex;
-    flex-direction: column;
+    flex-flow: column,nowrap;
     align-items: center;
     justify-content:center;
-    padding:24px;
     gap:20px;
-    font-size:32px;
-
+    font-size:32px;;
+    border:10px solid red;
    }
-
-   profile_picture{
+   .profile_picture{
     display:flex;
     justify-content: center;
     align-items: center;
    }
-   .ko-fi{
+   .kofi{
+    border:10px solid red;
     background-color: white;
-    border:16px;
+    border-radius: 50%;
+   }
+   .kofi :hover{
+    background-color:blue;
+    border-radius: 50%;
+    color: red;
+    animation: colorswap 3.5s ease-in-out infinite;
+}
+
+@keyframes colorswap {
+    0% {
+       
+        background-color:blue;
+    }
+    25% {
+        background-color:blueviolet;
+    }
+    50% {
+        background-color:violet;
+    }
+    75% {
+        background-color:pink;
+    }
+    100% {
+        background-color:fuchsia;
+    }
+}
+
+   .twitter{
+    border:10px solid red;
+    background-color: white;
+    border-radius: 50%;
+   }
+   .twitter :hover{
+    background-color: white;
+    border-radius: 50%;
+    color: red;
+    animation: colorswap 3s ease-in-out infinite;
+   }
+   .instagram{
+    border:10px solid red;
+    background-color: white;
+    border-radius: 50%;
+   }
+   .instagram :hover{
+    background-color: white;
+    color:red;
+    border-radius: 50%;
+    animation:colorswap 3s ease-in-out infinite
+   }
+   .furaffinity{
+    border:10px solid red;
+    background-color: white;
+    border-radius: 50%;
+   }
+   .furaffinity :hover{
+    background-color: white;
+    color:red;
+    border-radius: 50%;
+    animation:colorswap 3s ease-in-out infinite;
+   }
+   .toyhouse{
+    border:10px solid red;
+    background-color: white;
+    border-radius: 50%;
+   }
+   .toyhouse :hover{
+    background-color: white;
+    color:red;
+    border-radius: 50%;
+    animation:colorswap 3s ease-in-out infinite;
+   }
+   .gallery_wheel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding:8px;
-    color:black;
+    overflow: hidden;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: rotate 30% linear infinite;
+   }
+   @keyframes rotate{
+    0%{ transform: perspective(1000px) rotateY(0deg);
+   }
+   100%{
+    transform: perspective(1000px) rotateY(360deg);
+   }
+}
+   .gallery_wheel span{
+    position: absolute;
+    top: 0;
+    left: 0;
+   width: 100%;
+    height: 105%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i)+45deg)) translateZ(350px)
+   }
+   .gallery_wheel span img{
+    position: absolute;
+    padding:16px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit:cover;
+    transition: 2s;
+   }
+   .gallery_wheel span:hover{
+    transform: translateY(-50px) scale(1.2);
    }
