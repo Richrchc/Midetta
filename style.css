@@ -3,22 +3,12 @@ body{
     background-attachment:fixed;
     background-repeat: no-repeat;
     background-size: cover;
+    /*background image*/
 }
-
 ul{
-    list-style-type:none;
-    display:flex;
-    font-size: 24px;
-   }
-   a:hover{
-    font-size: 36px;
-    color: aquamarine;
-   }
-   a{
-       text-decoration: none;
-       padding:10px;
-       color:darkcyan;
-   }
+    list-style-type: none;
+    margin: 0; 
+}
    header,footer{
     padding: 36px;
     display:flex;
@@ -27,9 +17,7 @@ ul{
    align-items: center;
 
    }
-   .wavy_text{
-    position: relative;
- }
+   
    .wavy_text span{
     position:relative;
     display:inline-block;
@@ -53,14 +41,61 @@ ul{
     100% {
         transform: translateY(0px);
     }
-}
+}/*For the wavy text effect */
 .profile_picture{
 border-radius: 50%;
 overflow:hidden;
+gap:50px;
 }
+.profile_picture img{
+width:100%;
+height:100%;
+}
+
    .nav{
-    display: flex;
-    flex-direction: row;
+    list-style: none;
+text-align: center; 
+}
+
+  .nav li{
+    display: inline-block;
+    font-size:36px;
+  }
+  .nav li a{
+    display: inline-block;
+}
+    .nav li a:hover{
+    text-decoration: none;
+    font-size: 48px;
+    color:darkcyan;
+    }
+ 
+.links{
+    display: inline-block;
+    margin: 2px;
+    text-decoration: none;
+    color:aquamarine;
+    position:relative;
+   }
+   .links::hover{
+    color:darkcyan;
+    text-decoration: none;
+   }
+   .links::after{
+    content:'';
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: aquamarine;
+    transform:scaleX(0);
+    transform-origin: center;
+    transition: transform .50s ease;
+   }
+   .links:hover::after{
+    transform:scaleX(1);
+
    }
    header{
    font-size: 48px;
@@ -70,8 +105,9 @@ overflow:hidden;
    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
    }
    h1{
-    color:#404347;
+    color:aquamarine;
     text-align: center;
+    background-color: rgba(185, 122, 169, .3);
    }
    footer{
     display: flex;
@@ -79,12 +115,20 @@ overflow:hidden;
    }
    .sources_block{
     display: flex;
-    flex-flow: column,nowrap;
+    flex-flow: column nowrap;
+    flex:1,1,auto;
     align-items: center;
     justify-content:center;
     gap:20px;
-    font-size:32px;;
-    border:10px solid red;
+    font-size:32px;
+    border: solid red;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+   }
+   .sources_block a{
+    text-decoration: none;
    }
    .profile_picture{
     display:flex;
@@ -92,8 +136,9 @@ overflow:hidden;
     align-items: center;
    }
    .kofi{
-    border:10px solid red;
+    border: 5px solid rgba(185, 122, 169, .3);
     background-color: white;
+
     border-radius: 50%;
    }
    .kofi :hover{
@@ -106,26 +151,31 @@ overflow:hidden;
 @keyframes colorswap {
     0% {
        
-        background-color:blue;
+        background-color:rgb(131, 78, 255);
+        color: white;
     }
     25% {
-        background-color:blueviolet;
+        background-color:rgb(5, 83, 185);
+        color: white;
     }
     50% {
-        background-color:violet;
+        background-color:rgb(11, 157, 220);
+        color:white;
     }
     75% {
-        background-color:pink;
+        background-color:rgb(254, 118, 220);
+        color: white;
     }
     100% {
-        background-color:fuchsia;
+        background-color:rgb(234, 74, 194);
+        color: white;
     }
 }
 
    .twitter{
-    border:10px solid red;
+    border: 5px solid rgba(185, 122, 169, .3);
     background-color: white;
-    border-radius: 50%;
+    border-radius: 50%;;
    }
    .twitter :hover{
     background-color: white;
@@ -134,7 +184,7 @@ overflow:hidden;
     animation: colorswap 3s ease-in-out infinite;
    }
    .instagram{
-    border:10px solid red;
+    border:5px solid rgba(185, 122, 169, .3);
     background-color: white;
     border-radius: 50%;
    }
@@ -145,7 +195,7 @@ overflow:hidden;
     animation:colorswap 3s ease-in-out infinite;
    }
    .furaffinity{
-    border:10px solid red;
+    border:5px solid rgba(185, 122, 169, .3);
     background-color: white;
     border-radius: 50%;
    }
@@ -156,7 +206,7 @@ overflow:hidden;
     animation:colorswap 3s ease-in-out infinite;
    }
    .toyhouse{
-    border:10px solid red;
+    border:5px solid rgba(185, 122, 169, .3);
     background-color: white;
     border-radius: 50%;
    }
@@ -166,11 +216,35 @@ overflow:hidden;
     border-radius: 50%;
     animation:colorswap 3s ease-in-out infinite;
    }
-   .gallery_container{
-    display: flex;
+
+   /*about me css*/
+   .bunny{
+    display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 60px;
+
+}
+   .bunny img{
+    width: 25%;
+    height:25%;
+    transform-style: preserve-3d;
+  transform: rotate(15deg);
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  0%   { background-position: 0 0; } 
+  100% { background-position: 545px 0; }
+}
+   
+   /*Gallery page css*/
+   .gallery_container{
+    display: flex;
+    flex:1;
+    justify-content: center;
+    align-items: center;
+    padding: 200px;
    }
    .gallery_wheel{
     position: relative;
