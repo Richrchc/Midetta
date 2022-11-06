@@ -3,8 +3,10 @@ body{
     background-attachment:fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    /*background image*/
+
+   /*background image*/
 }
+
 ul{
     list-style-type: none;
     margin: 0; 
@@ -46,6 +48,8 @@ ul{
 border-radius: 50%;
 overflow:hidden;
 gap:50px;
+width:100%;
+height:100%;
 }
 .profile_picture img{
 width:100%;
@@ -106,13 +110,32 @@ text-align: center;
    }
    h1{
     color:aquamarine;
-    text-align: center;
     background-color: rgba(185, 122, 169, .3);
    }
    footer{
     display: flex;
     justify-content:center;
    }
+   .tracker{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    z-index: 9999;
+    pointer-events: none;
+    transition: all .15s;
+
+}
+   .tracker img{
+    width: 25%;
+    height:25%;
+    transform-style: preserve-3d;
+  transform: rotate(15deg);
+  animation: rotate 10s linear infinite;
+}
    .sources_block{
     display: flex;
     flex-flow: column nowrap;
@@ -121,9 +144,7 @@ text-align: center;
     justify-content:center;
     gap:20px;
     font-size:32px;
-    border: solid red;
-    border-width: 2px;
-    border-radius: 10px;
+  
     padding: 20px;
     margin: 20px;
    }
@@ -134,8 +155,14 @@ text-align: center;
     display:flex;
     justify-content: center;
     align-items: center;
+    width:50%;
+    height:50%;
    }
-   .kofi{
+   .profile_picture img{
+    width:50%;
+    height:50%;
+      }
+         .kofi{
     border: 5px solid rgba(185, 122, 169, .3);
     background-color: white;
 
@@ -218,30 +245,21 @@ text-align: center;
    }
 
    /*about me css*/
-   .bunny{
+.about{
     display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-   .bunny img{
-    width: 25%;
-    height:25%;
-    transform-style: preserve-3d;
-  transform: rotate(15deg);
-  animation: rotate 10s linear infinite;
-}
-
-@keyframes rotate {
-  0%   { background-position: 0 0; } 
-  100% { background-position: 545px 0; }
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 0,1,auto;
+    width: 75%;
+    height:75%;
+    background-color: rgba(185, 122, 169, .3);
+    border:solid;
 }
    
    /*Gallery page css*/
    .gallery_container{
     display: flex;
-    flex:1;
+    flex:1,0,auto;
     justify-content: center;
     align-items: center;
     padding: 200px;
@@ -285,3 +303,29 @@ text-align: center;
    .gallery_wheel span:hover img{
     transform: translatey(-50px) scale(1.2);
    }
+ 
+.spinning_galleryA{
+    position: relative;
+    width: 30%;
+    height: 30%;
+    padding:20px;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    animation: rotate 20s linear infinite;
+}
+.spinning_galleryA:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.spinning_galleryA:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
